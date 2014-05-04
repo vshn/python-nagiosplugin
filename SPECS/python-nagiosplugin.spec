@@ -52,7 +52,7 @@ Python 3.2, Python 2.7, and Python 2.6.
 
 %files
 %defattr(-,root,root,-)
-%doc README.txt CCONTRIBUTORS.txt HACKING.txt HISTORY.txt LICENSE.txt
+%doc README.txt CONTRIBUTORS.txt HACKING.txt HISTORY.txt LICENSE.txt
 %{python_sitelib}/%{srcname}*
 
 %changelog
