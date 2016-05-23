@@ -3,7 +3,7 @@
 %global srcname nagiosplugin
 
 Name:           python-%{srcname}
-Version:        1.2.1
+Version:        1.2.4
 Release:        1.vortex%{?dist}
 Summary:        Class library for writing Nagios (Icinga) plugins
 Vendor:         Vortex RPM
@@ -56,5 +56,6 @@ Python 3.2, Python 2.7, and Python 2.6.
 %{python_sitelib}/%{srcname}*
 
 %changelog
+* Mon May 23 2016 Sam MCLeod <github.com/sammcj> - 1.2.4
 * Sun May  4 2014 Ilya Otyutskiy <ilya.otyutskiy@icloud.com> - 1.2.1-1.vortex
 - Initial packaging.
