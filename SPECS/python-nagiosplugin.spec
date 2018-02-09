@@ -1,21 +1,19 @@
-%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
-
 %global srcname nagiosplugin
 
-Name:           python-%{srcname}
+Name:           python3-%{srcname}
 Version:        1.2.4
-Release:        1.vortex%{?dist}
+Release:        2.vortex%{?dist}
 Summary:        Class library for writing Nagios (Icinga) plugins
 Vendor:         Vortex RPM
 
 Group:          Development/Libraries
 License:        ZPL
 URL:            http://projects.gocept.com/projects/nagiosplugin
-Source0:        http://pypi.python.org/packages/source/n/%{srcname}/%{srcname}-%{version}.tar.gz
+Source0:        http://pypi.python3.org/packages/source/n/%{srcname}/%{srcname}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
-BuildRequires:  python-setuptools, python-devel
+BuildRequires:  python34-setuptools, python34-devel
 
 %description
 nagiosplugin is a Python class library which helps writing Nagios (or Icinga)
@@ -41,11 +39,11 @@ Python 3.2, Python 2.7, and Python 2.6.
 %setup -q -n %{srcname}-%{version}
 
 %build
-%{__python} setup.py build
+%{__python3} setup.py build
 
 %install
 %{__rm} -rf %{buildroot}
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%{__python3} setup.py install -O1 --skip-build --root %{buildroot}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -53,9 +51,11 @@ Python 3.2, Python 2.7, and Python 2.6.
 %files
 %defattr(-,root,root,-)
 %doc README.txt CONTRIBUTORS.txt HACKING.txt HISTORY.txt LICENSE.txt
-%{python_sitelib}/%{srcname}*
+%{python3_sitelib}/%{srcname}*
 
 %changelog
+* Fri Feb 9 2018 Michael Hanselmann <hansmi@vshn.ch> 1.2.4-2.vortex
+- Package for Python 3.4.
 * Mon May 23 2016 Sam MCLeod <github.com/sammcj> - 1.2.4
 * Sun May  4 2014 Ilya Otyutskiy <ilya.otyutskiy@icloud.com> - 1.2.1-1.vortex
 - Initial packaging.
